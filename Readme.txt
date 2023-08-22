@@ -19,6 +19,12 @@ step 5 - Build the project
 Step 6 - Go to Test --> Test Explorer 
          You would see all 3 tests are listed there , Right click on it and click on Run
 
+Step 7 If you want to see the test results Go to DotNetCore\Automation.Ui.Tests\Test Results and you would see a folder is created with current date and time open 
+        that folder and you would see index.html file . This is BDD style extent reporting for the execyted tests.
+
+Step 8 - Kindly click on the below link to watch the video of test execution of Test scenario 2 of assignment given 
+         https://youtu.be/Eq7WUL4aDSQ
+
 Note : I am using NunitTest3Adapter for running the tests , Once the build is successfull it would automatically get downloaded no need to install it explicitly.
 
 ***********************************************************
