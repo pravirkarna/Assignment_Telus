@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Automation.Ui.Accelerators.Enums
 {
-   public enum Browsers
+   public enum WebBrowsers
     {
         [Description("firefox")]
         Firefox,

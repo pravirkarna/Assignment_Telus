@@ -11,7 +11,7 @@ using OpenQA.Selenium.Support.UI;
 using System.Data;
 using System.Text;
 using Automation.Ui.Accelerators.Constants;
-using Automation.UI.Accelerators.UtilityClasses;
+using Automation.UI.Accelerators.HelperClasses;
 
 namespace Automation.UI.Accelerators.BaseClasses
 {
@@ -19,12 +19,12 @@ namespace Automation.UI.Accelerators.BaseClasses
     /// This is the Super class for all pages
     /// </summary>
     /// 
-    public abstract class BasePage
+    public abstract class BasePages
     {
         /// <summary>
         /// Get the browser configuration details
         /// </summary>
-        public Dictionary<string, string> BrowserConfig = Utility.BrowserConfig;
+        public Dictionary<string, string> BrowserConfig = Helper.BrowserConfig;
 
         /// <summary>
         /// Gets or Sets Driver
@@ -40,53 +40,26 @@ namespace Automation.UI.Accelerators.BaseClasses
         /// Gets or Sets Reporter
         /// </summary>
 
-
-
-
-        public const string SCROLLINTOVIEW = @"(arguments[0].scrollIntoView(true));";
-
-        public static readonly string HighliteBorderScript = $@"arguments[0].style.cssText = 'border-width: 4px; border-style: solid; border-color: {"orange"}';";
-
-        public BasePage()
+ 
+        public BasePages()
         {
 
         }
 
-        public BasePage(RemoteWebDriver driver)
+        public BasePages(RemoteWebDriver driver)
         {
             Driver = driver;
         }
 
-        public BasePage(XmlNode testNode)
+        public BasePages(XmlNode testNode)
         {
             TestDataNode = testNode;
         }
 
-        public BasePage(RemoteWebDriver driver, XmlNode testNode)
+        public BasePages(RemoteWebDriver driver, XmlNode testNode)
         {
             Driver = driver;
             TestDataNode = testNode;
-        }
-
-
-        internal IWebElement WaitForElementVisible(IWebDriver Driver, IWebElement WebElement, int maxWaitTime = 60)
-        {
-            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(maxWaitTime));
-            wait.Until(webEle => WebElement);
-            if (WebElement == null) return WebElement;
-            var jsExecutor = (IJavaScriptExecutor)Driver;
-            jsExecutor.ExecuteScript(HighliteBorderScript, new object[] { WebElement });
-            jsExecutor.ExecuteScript(@"$(arguments[0].scrollIntoView(true));", new object[] { WebElement });
-
-            return WebElement;
-        }
-
-        public void NavigateToLoginPage(IWebDriver Driver)
-        {
-            var applicationUrl = Constants.URL;
-            Driver.Navigate().GoToUrl(applicationUrl);
-
-
         }
 
         public static void tearDown(IWebDriver driver)

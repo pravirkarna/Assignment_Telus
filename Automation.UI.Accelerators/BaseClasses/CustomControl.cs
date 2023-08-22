@@ -4,19 +4,25 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net;
 using System.Text;
 using TechTalk.SpecFlow;
 
 namespace Automation.UI.Accelerators.BaseClasses
 {
-    public class CustomControl : DriverHelper
+    public class CustomControls : DriverHelper
     {
 
         protected static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         public static void EnterText(IWebElement webElement, string value) => webElement.SendKeys(value);
 
         public static void Click(IWebElement webElement) => webElement.Click();
+
+        public const string SCROLLINTOVIEW = @"(arguments[0].scrollIntoView(true));";
+
+        public static readonly string HighliteBorderScript = $@"arguments[0].style.cssText = 'border-width: 4px; border-style: solid; border-color: {"orange"}';";
+
 
         public static void SelectByValue(IWebElement webElement, string value)
         {
@@ -127,6 +133,47 @@ namespace Automation.UI.Accelerators.BaseClasses
             }
         }
 
+        public static IList<IWebElement> GetWebLocators(IWebDriver driver, By elementName)
+        {
+            IList <IWebElement> element = null;
+            try
+            {
+                element = driver.FindElements(elementName);
+                return element;
+            }
+
+            catch (Exception ex)
+            {
+                throw new NoSuchElementException(string.Format("Failed at GetLocator() {0}\n{1}", ex.StackTrace, ex.Message));
+            }
+        }
+
+        internal IWebElement WaitForElementVisible(IWebDriver driver, IWebElement WebElement, int maxWaitTime = 60)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(maxWaitTime));
+            wait.Until(webEle => WebElement);
+            if (WebElement == null) return WebElement;
+            var jsExecutor = (IJavaScriptExecutor)driver;
+            jsExecutor.ExecuteScript(HighliteBorderScript, new object[] { WebElement });
+            
+            return WebElement;
+        }
+
+        public void SendValues(IWebDriver driver,IWebElement element, string value)
+        {
+            WaitForElementVisible(driver, element);
+            element.SendKeys(value);
+        }
+
+        /// <summary>
+        /// Converts currency string value to Double
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>Double</returns>
+        public static double ConvertStringToDouble(string value)
+        {
+            return Decimal.ToDouble(decimal.Parse($"{value:C}", NumberStyles.AllowCurrencySymbol | NumberStyles.Currency | NumberStyles.Number | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, new CultureInfo("en-US")));
+        }
 
     }
 }

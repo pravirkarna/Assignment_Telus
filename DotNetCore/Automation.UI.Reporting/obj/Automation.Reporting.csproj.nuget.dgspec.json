@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\DotNetCore\\Automation.UI.Reporting\\Automation.Reporting.csproj": {}
+    "C:\\Projects\\DotNetCore\\DotNetCore\\Automation.UI.Reporting\\Automation.Reporting.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\DotNetCore\\Automation.UI.Reporting\\Automation.Reporting.csproj": {
+    "C:\\Projects\\DotNetCore\\DotNetCore\\Automation.UI.Reporting\\Automation.Reporting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\DotNetCore\\Automation.UI.Reporting\\Automation.Reporting.csproj",
+        "projectUniqueName": "C:\\Projects\\DotNetCore\\DotNetCore\\Automation.UI.Reporting\\Automation.Reporting.csproj",
         "projectName": "Automation.Reporting",
-        "projectPath": "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\DotNetCore\\Automation.UI.Reporting\\Automation.Reporting.csproj",
+        "projectPath": "C:\\Projects\\DotNetCore\\DotNetCore\\Automation.UI.Reporting\\Automation.Reporting.csproj",
         "packagesPath": "C:\\Users\\pravir.karna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\DotNetCore\\Automation.UI.Reporting\\obj\\",
+        "outputPath": "C:\\Projects\\DotNetCore\\DotNetCore\\Automation.UI.Reporting\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pravir.karna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,9 +60,13 @@
               "target": "Package",
               "version": "[3.13.1, )"
             },
+            "NUnit.ConsoleRunner": {
+              "target": "Package",
+              "version": "[3.16.3, )"
+            },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[3.17.0, )"
+              "version": "[4.5.0, )"
             },
             "Selenium.Support": {
               "target": "Package",
@@ -71,6 +75,10 @@
             "Selenium.WebDriver": {
               "target": "Package",
               "version": "[3.141.0, )"
+            },
+            "WebDriverManager": {
+              "target": "Package",
+              "version": "[2.17.1, )"
             },
             "coverlet.collector": {
               "target": "Package",
@@ -93,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

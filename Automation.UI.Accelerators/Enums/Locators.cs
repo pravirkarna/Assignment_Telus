@@ -10,14 +10,14 @@ namespace Automation.Ui.Accelerators.Enums
     /// <summary>
     /// HomePage Objects
     /// </summary>
-    public enum Locators
-    {
+    public enum WebLocators
+    {        
+        NAME,
+        PARTIALLINKTEXT,
+        LINKTEXT, 
         XPATH,
         CSSSELECTOR,
         ID,
-        NAME,
-        PARTIALLINKTEXT,
-        LINKTEXT,
         CLASS,
         TAGNAME
     }

@@ -10,11 +10,12 @@ using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using Automation.Reporting.ReportingClasses;
 using Automation.UI.Accelerators;
+using OpenQA.Selenium.Firefox;
 
 namespace Automation.Ui.Tests.Hooks
 {
     [Binding]
-    public sealed class Hooks : BasePage
+    public sealed class Hooks : BasePages
     {
         private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
         public static readonly object synchroniser = new object();
@@ -28,8 +29,8 @@ namespace Automation.Ui.Tests.Hooks
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            logger.Info("*********Cleaning Chrome Instances*******");
-            Process.Start("cmd.exe", "/C taskkill /F /IM chromedriver.exe /T");
+            logger.Info("*********Cleaning Firefox Instances*******");
+            Process.Start("cmd.exe", "/C taskkill /F /IM firefox.exe /T");
             logger.Info("*********Starting New Tests*******");
         }
 
@@ -48,13 +49,10 @@ namespace Automation.Ui.Tests.Hooks
                 logger.Debug("Test: {0}", ScenarioContext.ScenarioInfo.Title);
                 ExtentReport.startScenario(ScenarioContext.ScenarioInfo.Title, FeatureContext.FeatureInfo.Title);
 
-                ChromeOptions option = new ChromeOptions();
-                option.AddArguments("start-maximized");
-                option.AddArguments("--disable-gpu");
-                //option.AddArguments("--headless");
-                new DriverManager().SetUpDriver(new ChromeConfig());
-                Console.WriteLine("Setup");
-                _driverHelper.Driver = new ChromeDriver(option);
+                new WebDriverManager.DriverManager().SetUpDriver(new FirefoxConfig());
+                var p = new FirefoxProfile();
+
+                _driverHelper.Driver = new FirefoxDriver();
 
             }
         }

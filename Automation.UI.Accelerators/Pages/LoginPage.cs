@@ -1,14 +1,15 @@
 ﻿
 using Automation.Ui.Accelerators.Constants;
 using Automation.UI.Accelerators.BaseClasses;
+using Automation.UI.Accelerators.Pages;
 using OpenQA.Selenium;
 
 namespace Automation.UI.Accelerators.Pages
 {
     /// <summary>
-    ///  Represents PageFunction. Inherates from BasePage.
+    ///  Represents PageFunction. Inherates from BasePages.
     /// </summary>
-    public partial class LoginPage : CustomControl
+    public partial class LoginPage : CustomControls
     {
         /// <summary>
         /// Constructor without parameters
@@ -22,7 +23,7 @@ namespace Automation.UI.Accelerators.Pages
 
         public LoginPage(IWebDriver driver)
         {
-           this.Driver = driver;
+            this.Driver = driver;
         }
 
         public static LoginPage GetInstance(IWebDriver driver)
@@ -34,37 +35,41 @@ namespace Automation.UI.Accelerators.Pages
             return _instance;
         }
 
-        IWebElement txtUserName => GetLocator(Driver, By.Name("UserName"));
-        IWebElement txtPassword => GetLocator(Driver,By.Name("Password"));
-        IWebElement btnLogin => GetLocator(Driver,By.CssSelector(".btn-default"));
-        IWebElement lnkLogOff => GetLocator(Driver,By.LinkText("Log off"));
+        IWebElement txtUserName => GetLocator(Driver, By.Name("user-name"));
+        IWebElement txtPassword => GetLocator(Driver, By.Name("password"));
+        IWebElement btnLogin => GetLocator(Driver, By.CssSelector("#login-button"));
+        IWebElement ProductsPagePageTitle => GetLocator(Driver, By.CssSelector("span[class='title']"));
 
 
-        public void EnterUserNameAndPassword(string userName, string password)
+        public void EnterUserNameAndPassword()
         {
-            txtUserName.SendKeys(userName);
-            txtPassword.SendKeys(password);
+            SendValues(Driver,txtUserName, Constants.Username);
+            SendValues(Driver,txtPassword, Constants.Password);            
         }
 
         public void ClickLogin()
         {
             btnLogin.Click();
-            WaitForElement(Driver,lnkLogOff,true, 20);
-
+            WaitForElement(Driver, ProductsPagePageTitle, true, 20);
+        }
+        public bool VerifyProductsPagePage()
+        {
+            WaitForElementVisible(Driver, ProductsPagePageTitle,5);
+            return ProductsPagePageTitle.Enabled && ProductsPagePageTitle.Displayed;
         }
 
         //Method hiding example
-        public new SampleTest NavigateToLoginPage(IWebDriver Driver)
+        public new ProductsPage NavigateToLoginPage(IWebDriver Driver)
         {
-             var applicationUrl = Constants.URL;
-             Driver.Navigate().GoToUrl(applicationUrl);           
+            var applicationUrl = Constants.URL;
+            Driver.Navigate().GoToUrl(applicationUrl);
 
-            return new SampleTest(Driver);
+            return new ProductsPage(Driver);
         }
 
-        
+
     }
 
 
-    
+
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\Automation.UI.Accelerators\\Automation.UI.Accelerators.csproj": {}
+    "C:\\Projects\\DotNetCore\\Automation.UI.Accelerators\\Automation.UI.Accelerators.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\Automation.UI.Accelerators\\Automation.UI.Accelerators.csproj": {
+    "C:\\Projects\\DotNetCore\\Automation.UI.Accelerators\\Automation.UI.Accelerators.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\Automation.UI.Accelerators\\Automation.UI.Accelerators.csproj",
+        "projectUniqueName": "C:\\Projects\\DotNetCore\\Automation.UI.Accelerators\\Automation.UI.Accelerators.csproj",
         "projectName": "Automation.UI.Accelerators",
-        "projectPath": "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\Automation.UI.Accelerators\\Automation.UI.Accelerators.csproj",
+        "projectPath": "C:\\Projects\\DotNetCore\\Automation.UI.Accelerators\\Automation.UI.Accelerators.csproj",
         "packagesPath": "C:\\Users\\pravir.karna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pravir.karna\\Downloads\\DOTNetCORE-master\\DOTNetCORE-master\\Automation.UI.Accelerators\\obj\\",
+        "outputPath": "C:\\Projects\\DotNetCore\\Automation.UI.Accelerators\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pravir.karna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,10 +52,6 @@
               "target": "Package",
               "version": "[16.9.4, )"
             },
-            "Microsoft.TestPlatform.TestHost": {
-              "target": "Package",
-              "version": "[17.1.0, )"
-            },
             "NLog": {
               "target": "Package",
               "version": "[4.7.14, )"
@@ -66,11 +62,11 @@
             },
             "NUnit.ConsoleRunner": {
               "target": "Package",
-              "version": "[3.11.1, )"
+              "version": "[3.16.3, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[3.17.0, )"
+              "version": "[4.5.0, )"
             },
             "RestSharp": {
               "target": "Package",
@@ -92,17 +88,13 @@
               "target": "Package",
               "version": "[1.4.2, )"
             },
-            "SpecFlow.Tools.MsBuild.Generation": {
-              "target": "Package",
-              "version": "[3.4.31, )"
-            },
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[6.0.0, )"
             },
             "WebDriverManager": {
               "target": "Package",
-              "version": "[2.11.0, )"
+              "version": "[2.17.1, )"
             },
             "coverlet.collector": {
               "target": "Package",
@@ -129,7 +121,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

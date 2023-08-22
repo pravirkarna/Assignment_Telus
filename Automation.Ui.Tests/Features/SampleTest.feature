@@ -1,35 +1,35 @@
 ﻿Feature: SampleTest
 
-This feature is to test all the functionality of Herokuapp.com
+This feature is to test all the functionality of SwagLabs.com
 
 
-Background: 
+Background:
 	Given I navigate to application
-	Then I should be able to see Dynamic Console Page
+	When user enters a valid username and password
+	Then user should be able to login successfully
 	
-@smoke
-Scenario: Verify Description Text at Dynamic Controls Page
-	Then Dynamic Control description should be 'This example demonstrates when elements (e.g., checkbox, input field, etc.) are changed asynchronously.'
+@smoke @regression
+Scenario: Test-1 Verify login functionality
+	Then user is redirected to 'ProductsPage' page
 
 @regression
-Scenario: Verify Checkbox at Dynamic Controls Page
-	Then verify A checkbox is present
-	And user should be able to check the checkbox
+Scenario: Test-2 Verify Buying functionality - 2 Items
+	When user adds '3' items to Cart
+	Then '3' items should be added to Cart
+	When I remove '1' item from the cart
+	Then '1' Item should get removed succesfully
+	When I click on checkout and fill all checkout details
+	Then I should be routed to checkout overview page
+	When I check the overview details and click on Finish
+	Then order should get placed and user should see success message as 'Thank you for your order!'
 
 @regression
-Scenario: Verify Add Remove button functionality at Dynamic Controls Page
-	When user clicks on 'Remove' button
-	Then checkbox should not get displayed and user should be able to see 'Its gone!' message 
-	When user clicks on 'Add' button
-	Then checkbox should not get displayed and user should be able to see 'Its back!' message 
-	And verify A checkbox is present
+Scenario: Test-3 Buying Items within a range of $30-$60
+	When user add items to Cart within a range of '30' and '60'
+	Then all items should get addedd to cart
+	When I click on checkout and fill all checkout details
+	Then I should be routed to checkout overview page
+	When I check the overview details and click on Finish
+	Then order should get placed and user should see success message as 'Thank you for your order!'
+	
 
-@regression
-Scenario: Verify Enable Disable functionality at Dynamic Controls Page
-    Then enable disable text area should be disabled by default
-	When user clicks on 'Enable' button
-	Then enable disable text area should be enabled
-	And user should be abl eto enter some random texts
-	When user clicks on 'Disable' button
-	Then checkbox should not get displayed and user should be able to see 'It's disabled!' message 
-	Then enable disable text area should be disabled by default
